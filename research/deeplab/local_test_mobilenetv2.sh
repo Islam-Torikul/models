@@ -72,8 +72,8 @@ cd "${CURRENT_DIR}"
 
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
-# Train 10 iterations.
-NUM_ITERATIONS=10000
+# Train 15k iterations.
+NUM_ITERATIONS=15000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
@@ -115,6 +115,8 @@ python "${WORK_DIR}"/vis.py \
   --vis_logdir="${VIS_LOGDIR}" \
   --dataset_dir="${PASCAL_DATASET}" \
   --max_number_of_iterations=1
+
+echo "*********** Rizan Export kortase ************"
 
 # Export the trained checkpoint.
 CKPT_PATH="${TRAIN_LOGDIR}/model.ckpt-${NUM_ITERATIONS}"
