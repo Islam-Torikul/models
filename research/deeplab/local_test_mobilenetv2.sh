@@ -92,6 +92,9 @@ python "${WORK_DIR}"/train.py \
 # Run evaluation. This performs eval over the full val split (1449 images) and
 # will take a while.
 # Using the provided checkpoint, one should expect mIOU=75.34%.
+
+echo "*********** Rizan Eval kortase ************"
+
 python "${WORK_DIR}"/eval.py \
   --logtostderr \
   --eval_split="val" \
