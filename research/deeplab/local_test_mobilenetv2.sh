@@ -73,7 +73,6 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 10 iterations.
-NUM_ITERATIONS=10
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
@@ -82,7 +81,9 @@ python "${WORK_DIR}"/train.py \
   --train_crop_size="513,513" \
   --train_batch_size=4 \
   --training_number_of_steps="${NUM_ITERATIONS}" \
-  --fine_tune_batch_norm=true \
+  --initialize_last_layer = False \
+  --fine_tune_batch_norm = False \
+  --last_layers_contain_logits_only=true \
   --tf_initial_checkpoint="${INIT_FOLDER}/${CKPT_NAME}/model.ckpt-30000" \
   --train_logdir="${TRAIN_LOGDIR}" \
   --dataset_dir="${PASCAL_DATASET}"
@@ -120,7 +121,7 @@ python "${WORK_DIR}"/export_model.py \
   --checkpoint_path="${CKPT_PATH}" \
   --export_path="${EXPORT_PATH}" \
   --model_variant="mobilenet_v2" \
-  --num_classes=21 \
+  --num_classes=2 \
   --crop_size=513 \
   --crop_size=513 \
   --inference_scales=1.0
