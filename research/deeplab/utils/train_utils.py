@@ -89,6 +89,7 @@ def add_softmax_cross_entropy_loss_for_each_scale(scales_to_logits,
     # weights must be tuned
     ignore_weight = 0
     label0_weight = 1
+    label1_weight = 15
 
     not_ignore_mask = tf.to_float(tf.equal(scaled_labels, 0)) * label0_weight + tf.to_float(tf.equal(scaled_labels, 1)) * label1_weight + tf.to_float(tf.equal(scaled_labels, ignore_label)) * ignore_weight 
     
