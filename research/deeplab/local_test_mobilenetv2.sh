@@ -73,13 +73,13 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 15k iterations.
-NUM_ITERATIONS=15000
+NUM_ITERATIONS=5000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
   --model_variant="mobilenet_v2" \
   --output_stride=16 \
-  --train_crop_size="513,513" \
+  --train_crop_size="257,257" \
   --train_batch_size=4 \
   --training_number_of_steps="${NUM_ITERATIONS}" \
   --initialize_last_layer = False \
@@ -99,7 +99,7 @@ python "${WORK_DIR}"/eval.py \
   --logtostderr \
   --eval_split="val" \
   --model_variant="mobilenet_v2" \
-  --eval_crop_size="513,513" \
+  --eval_crop_size="257,257" \
   --checkpoint_dir="${TRAIN_LOGDIR}" \
   --eval_logdir="${EVAL_LOGDIR}" \
   --dataset_dir="${PASCAL_DATASET}" \
@@ -110,7 +110,7 @@ python "${WORK_DIR}"/vis.py \
   --logtostderr \
   --vis_split="val" \
   --model_variant="mobilenet_v2" \
-  --vis_crop_size="513,513" \
+  --vis_crop_size="257,257" \
   --checkpoint_dir="${TRAIN_LOGDIR}" \
   --vis_logdir="${VIS_LOGDIR}" \
   --dataset_dir="${PASCAL_DATASET}" \
@@ -128,8 +128,8 @@ python "${WORK_DIR}"/export_model.py \
   --export_path="${EXPORT_PATH}" \
   --model_variant="mobilenet_v2" \
   --num_classes=2 \
-  --crop_size=513 \
-  --crop_size=513 \
+  --crop_size=257 \
+  --crop_size=257 \
   --inference_scales=1.0
 
 # Run inference with the exported checkpoint.
