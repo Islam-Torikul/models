@@ -78,12 +78,11 @@ _CITYSCAPES_INFORMATION = DatasetDescriptor(
 
 _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
-        'train': 1464,
-        'train_aug': 10582,
-        'trainval': 2913,
-        'val': 1449,
+        'train': 1000,
+        'trainval': 1815,
+        'val': 815,
     },
-    num_classes=21,
+    num_classes=2,
     ignore_label=255,
 )
 
