@@ -47,14 +47,14 @@ download_and_uncompress() {
 
   if [ ! -f "${FILENAME}" ]; then
     echo "Downloading ${FILENAME} to ${WORK_DIR}"
-    curl -L -o VOCtrainval_11-May-2012.tar "https://drive.google.com/uc?export=download&id=1G3LwDvXaXkN-SJUizlAzvYLjTcCxx0_N"
+    curl -L -o VOCtrainval_11-May-2012.tar "https://drive.google.com/uc?export=download&id=1iITd6MFLWIV8Hoy7es7vqa4RuvQEm24M"
   fi
   echo "Uncompressing ${FILENAME}"
   tar -xf "${FILENAME}"
 }
 
 # Download the images.
-BASE_URL="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/"
+BASE_URL="https://drive.google.com/uc?export=download&id=1iITd6MFLWIV8Hoy7es7vqa4RuvQEm24M"
 FILENAME="VOCtrainval_11-May-2012.tar"
 
 download_and_uncompress "${BASE_URL}" "${FILENAME}"
