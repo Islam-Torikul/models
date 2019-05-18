@@ -73,7 +73,7 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 10 iterations.
-NUM_ITERATIONS=1000
+NUM_ITERATIONS=10000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
@@ -104,7 +104,7 @@ python "${WORK_DIR}"/eval.py \
   --eval_logdir="${EVAL_LOGDIR}" \
   --dataset_dir="${PASCAL_DATASET}" \
   --max_number_of_evaluations=1
-
+echo "*********** Rizan Vis kortase ************"
 # Visualize the results.
 python "${WORK_DIR}"/vis.py \
   --logtostderr \
