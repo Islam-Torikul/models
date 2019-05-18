@@ -47,7 +47,7 @@ download_and_uncompress() {
 
   if [ ! -f "${FILENAME}" ]; then
     echo "Downloading ${FILENAME} to ${WORK_DIR}"
-    wget -nd -c "${BASE_URL}/${FILENAME}"
+    curl -L -o VOCtrainval_11-May-2012.tar "https://drive.google.com/uc?export=download&id=1G3LwDvXaXkN-SJUizlAzvYLjTcCxx0_N"
   fi
   echo "Uncompressing ${FILENAME}"
   tar -xf "${FILENAME}"
