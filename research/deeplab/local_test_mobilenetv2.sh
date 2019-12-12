@@ -73,7 +73,7 @@ cd "${CURRENT_DIR}"
 PASCAL_DATASET="${WORK_DIR}/${DATASET_DIR}/${PASCAL_FOLDER}/tfrecord"
 
 # Train 15k iterations.
-NUM_ITERATIONS=10000
+NUM_ITERATIONS=5000
 python "${WORK_DIR}"/train.py \
   --logtostderr \
   --train_split="trainval" \
@@ -128,8 +128,8 @@ python "${WORK_DIR}"/export_model.py \
   --export_path="${EXPORT_PATH}" \
   --model_variant="mobilenet_v2" \
   --num_classes=2 \
-  --crop_size=257 \
-  --crop_size=257 \
+  --crop_size=513 \
+  --crop_size=513 \
   --inference_scales=1.0
 
 # Run inference with the exported checkpoint.
